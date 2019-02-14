@@ -148,6 +148,16 @@ app.get("/shoutoutSubmit", function(req, res){
 });
 
 
+app.post("/shoutoutSubmit", function(req, res){
+  if (req.isAuthenticated()){
+    res.render("shoutoutSubmit", {credit: req.user.credit});
+  } else {
+    res.redirect("login");
+  }
+});
+
+
+
 
 app.get("/songrequests", function(req, res){
   if (req.isAuthenticated()){
