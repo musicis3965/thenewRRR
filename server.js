@@ -12,20 +12,20 @@ const findOrCreate = require('mongoose-findorcreate')
 
 const app = express();
 //mLab heroku stuff
-var options = { server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
-                replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } } };
-
-var mongodbUri = 'mongodb://<dbuser>:<dbpassword>@ds335275.mlab.com:35275/heroku_b1fl7pfg';
-
-
-mongoose.connect(mongodbUri, options);
-var conn = mongoose.connection;
-
-conn.on('error', console.error.bind(console, 'connection error:'));
-
-conn.once('open', function() {
-  // Wait for the database connection to establish, then start the app.
-});
+// var options = { server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
+//                 replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } } };
+//
+// var mongodbUri = 'mongodb://<dbuser>:<dbpassword>@ds335275.mlab.com:35275/heroku_b1fl7pfg';
+//
+//
+// mongoose.connect(mongodbUri, options);
+// var conn = mongoose.connection;
+//
+// conn.on('error', console.error.bind(console, 'connection error:'));
+//
+// conn.once('open', function() {
+//   // Wait for the database connection to establish, then start the app.
+// });
 //mLab heroku stuff//mLab heroku stuff//mLab heroku stuff
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
@@ -42,7 +42,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// mongoose.connect("process.env.mongodb://<dbuser>:<dbpassword>@ds335275.mlab.com:35275/heroku_b1fl7pfg") || ("mongodb://localhost:27017/userDB", {useNewUrlParser: true});
+mongoose.connect("mongodb://test:test123@ds335275.mlab.com:35275/heroku_b1fl7pfg") || ("mongodb://localhost:27017/userDB", {useNewUrlParser: true});
 mongoose.set("useCreateIndex", true);
 
 const userSchema = new mongoose.Schema ({
