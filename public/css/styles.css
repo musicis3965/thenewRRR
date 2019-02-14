@@ -1,0 +1,151 @@
+
+ body {
+  opacity: 1;
+}
+
+.centered {
+    padding-top: 200px;
+    text-align: center;
+}
+
+.secret-text {
+  text-align: center;
+  font-size: 3rem;
+  color: #fff;
+  background-color: #000;
+  margin-top:20px;
+
+}
+
+/* for the song requests portion */
+* {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myUL, #perminant {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#choiceUL .selectedSong {
+  border: 10px;
+  list-style-type: none;
+  border-radius: 15rem;
+  background-color: #ddd;
+  width: 100%;
+  font-size: 16px;
+  margin: 5px, 5px, 0px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #000000;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+#myUL {
+  display: none;
+}
+
+#perminant, #myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px;
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+
+#perminant, #myUL li a:hover:not(.header) {
+  background-color: #eee;
+}
+
+ul.hidden{
+  display: none;
+}
+
+.votingContainer{
+  margin-bottom: 10px;
+}
+
+@font-face {
+    font-family: 'capture_itregular';
+    src: url('capture_it-webfont.woff2') format('woff2'),
+         url('capture_it-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.customFont {
+  font-family: 'capture_itregular'!important;
+  src: url('capture_it-webfont.woff2') format('woff2'),
+       url('capture_it-webfont.woff') format('woff');
+  font-size: 29px;
+}
+
+.bigSquareButton {
+  width: 30rem;
+  border-radius: 50px;
+  /* box-shadow: 10px 10px 5px grey; */
+}
+
+.page {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  background: url("https://raw.githubusercontent.com/musicis3965/RRRresources/master/IMG_5748.JPG") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.pageTwo {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  background: url("https://raw.githubusercontent.com/musicis3965/RRRresources/master/takeoverbackground_tainted.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  background: url("https://raw.githubusercontent.com/musicis3965/RRRresources/master/IMG_8706.JPG") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.contactUs {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  background: url("https://raw.githubusercontent.com/musicis3965/RRRresources/master/1376196685795.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding:15px;
+  margin-top: -30px;
+}
+
+
+
+.disabled {
+  background: grey;
+}

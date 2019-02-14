@@ -1,0 +1,41 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<div class="jumbotron centered">
+  <div class="container">
+
+    <h1>Shoutout Submitted!</h1>
+    <h5>Once shoutout is approved, it will be randomly selected to play on air for a week!</h5>
+
+    <!-- <a class="btn btn-light btn-lg" href="/register" role="button">Register</a>
+    <a class="btn btn-dark btn-lg" href="/login" role="button">Login</a> -->
+  </div>
+  </div>
+
+
+
+<%- include('partials/contactUs') %>
+<%- include('partials/footer') %>
+
+
+<script>
+  $( document ).ready(function() {
+    var credit = parseInt($("#creditValue").text());
+    if (credit >= 3) {
+      credit = credit -3;
+      $.post("/updateJustCredit", {
+        credit: credit
+      },function(){$("#creditValue").text(credit);});
+    } else {
+      alert('not enough credits for shoutout!');
+    }
+  });
+</script>

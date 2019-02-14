@@ -1,0 +1,175 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+<div class="pageTwo">
+  <br />
+  <br />
+  <br />
+  <br />
+
+
+  <h2 style="color: white; text-shadow: 2px 2px 8px #111111;">Add a song to playlist!</h2>
+
+
+  <form action="/submit" method="POST">
+    <div class="form-group">
+      <input type="text" readonly class="form-control text-center" id="songHolder" name="secret" placeholder="No song selected yet">
+    </div>
+    <button type="submit" class="btn btn-dark songSubmit">Submit</button>
+  </form>
+  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for song.." title="Search for Song">
+  <ul id="myUL">
+    <li><a href="#" onclick="reply_click(this)" songInfo="song1">song1</a></li>
+    <li><a href="#" onclick="reply_click(this)" songInfo="song2">song2</a></li>
+    <li><a href="#" onclick="reply_click(this)" songInfo="song3">song3</a></li>
+    <li><a href="#" onclick="reply_click(this)" songInfo="song4">song4</a></li>
+    <li><a href="#" onclick="reply_click(this)" songInfo="song5">song5</a></li>
+    <li><a href="#" onclick="reply_click(this)" songInfo="song6">song6</a></li>
+    <li><a href="#" onclick="reply_click(this)" songInfo="song7">song7</a></li>
+  </ul>
+  <ul id="perminant">
+    <li><a href="https://form.jotform.com/90425651008148">Can't find song? Submit here</a></li>
+  </ul>
+  <br>
+  <br>
+  <!-- <ul id="choiceUL">
+  <li class="selectedSong">songs in queue</li>
+</ul> -->
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+
+
+<%- include('partials/contactUs') %>
+  <%- include('partials/footer') %>
+</div>
+<script>
+  
+    var credit = parseInt($("#creditValue").text());
+  // var config = {
+  //   apiKey: "AIzaSyC00quFEG9k5bBjnv41jOjiw7OqXUhsvec",
+  //   authDomain: "test-d07c1.firebaseapp.com",
+  //   databaseURL: "https://test-d07c1.firebaseio.com",
+  //   projectId: "test-d07c1",
+  //   storageBucket: "test-d07c1.appspot.com",
+  //   messagingSenderId: "732186583743"
+  // };
+  // firebase.initializeApp(config);
+  //
+  // var database = firebase.database();
+  // var songData = database.ref().child('/songData/');
+  // var ref = firebase.database().ref().child('/songData/');
+  var ul = document.getElementById("myUL"),
+    input = document.getElementById("myInput"),
+    li = ul.getElementsByTagName("li");
+
+
+
+
+  function myFunction() {
+    // we are defining are variables (a, i and
+    //txtValue are not defined until the for loop)
+    var filter, a, i, txtValue;
+    //input equals the myInput element
+    // filter seems to be taking the input value and
+    //forcing it uppercase
+    filter = input.value.toUpperCase();
+    // ul (unordered list?) is getting the inital list
+
+    if (filter == "") {
+      ul.style.display = "none"
+      // console.log("if is working")
+    } else {
+      ul.style.display = "block"
+      // console.log("else is working")
+    };
+
+    // li (list items) is equal to the li in the html
+
+    // console.log("this is in my function" + filter);
+
+    // if integer equals 0 and i is less than the length of the number of
+    //list items, we increase i plus one and execute...
+    for (i = 0; i < li.length; i++) {
+      // list item number, getting element by the anchor tag, zero array
+      a = li[i].getElementsByTagName("a")[0];
+      // txtValue variable equals textContent OR inner text of anchor tag
+      txtValue = a.textContent || a.innerText;
+      //
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = "";
+      } else {
+        li[i].style.display = "none";
+      }
+
+    }
+
+  }
+
+  // // ADDS CLICKED LIST ITEM TO DATABASE!!!!! YAASSSS
+  //   $('#myUL').on("click", "li", function() {
+  //   var clickChoice = $(this).text();
+  // // attempt to get it to dissapear on click
+  //   // document.getElementById('#myUL')ul.style.display = " ";
+  //    songData.push({name : clickChoice,
+  //                   value : 1 });
+  //
+  //
+  //
+  // // console.log('this is songData ' + songInPlay)
+  // });
+
+  function reply_click(element) {
+    document.getElementById('songHolder').value = element.getAttribute('songInfo');
+  }
+
+
+
+  //
+  // ref.on("child_added", function(snapshot){
+  //     var key = snapshot.val().name;
+  //     var songValue = snapshot.val().value;
+  //     console.log('this is snapshot ' + snapshot)
+  //     // console.log('this is the song value' + songValue)
+  //   $("#choiceUL").append(
+  //   $("<li>").addClass("selectedSong").html('<p>' + key + '</p>')
+  // .append($('<input type="button" class="downVote" value="down vote"/><input class="voteValue" type="text" readonly value="1"/><input type="button" class="upVote" value="up vote"/>')))
+  //   // console.log('this is song value' + songValue)
+  // });
+  //   // console.log('this is song value' + songValue)
+  // $(document).on("click", ".upVote", function() {
+  //   var input = $(this).parent().find('.voteValue')
+  //   var valueNew = parseInt(input.val(), 10);
+  //  valueNew = isNaN(valueNew) ? 0 : valueNew;
+  //   valueNew++;
+  //   input.val(valueNew);
+  //
+  //                   // songData.update({value: valueNew});
+  //                   // console.log(database);
+  //
+  //
+  //
+  // });
+  //
+  //
+  // $(document).on("click", ".downVote", function() {
+  //   var input = $(this).parent().find('.voteValue')
+  //   var valueNew = parseInt(input.val(), 10);
+  //  value = isNaN(valueNew) ? 0 : valueNew;
+  //
+  //   if (valueNew > 0) {
+  //     valueNew--;
+  //     input.val(valueNew)
+  //   }
+  //
+  // });
+</script>
