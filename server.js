@@ -148,6 +148,14 @@ app.get("/shoutoutSubmit", function(req, res){
   }
 });
 
+app.get("/choppingBlock", function(req, res){
+  if (req.isAuthenticated()){
+    res.render("choppingBlock", {credit: req.user.credit});
+  } else {
+    res.redirect("login");
+  }
+});
+
 
 app.post("/shoutoutSubmit", function(req, res){
   if (req.isAuthenticated()){
